@@ -6,5 +6,5 @@ The genlogin() function is really useful for me because I don't want to the user
 
 # Dependencies
 dmenu           -> Provides the drop down menu of available servers to choose from.<br>
-xfreerdp        -> The piece of software I use for connecting to servers via RDP.<br>
-(optional) pass -> As stated in the info section this is optional, but I do suggest using it adds a layer of security.<br>
+xfreerdp        -> The piece of software I use for connecting to servers via RDP. Fair warning, the package name is different depending on your distro so some seaching for the package name may be required.<br>
+(optional) pass -> As stated in the info section this is optional, but I do suggest using it adds a layer of security.
