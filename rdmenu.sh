@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 genlogin() {
-    case $1 in
+    case "$1" in
         myuser)
             user="myuser"
             passwd="$(pass domain/user | sed 1q)"
@@ -15,8 +15,9 @@ genlogin() {
             passwd="$(pass servers/sadmin | sed 1q)"
             ;;
         *)
-            echo 'you broke me'
-            exit 1;;
+            echo "you broke me"
+            exit 1
+            ;;
     esac
 }
 
@@ -25,20 +26,20 @@ dc1
 dc2
 fs1")
 
-choice=$(echo -e "${options[@]}" | dmenu -i -p 'Open connection: ' -l 15)
+choice="$(echo -e "${options[@]}" | dmenu -i -p 'Open connection: ' -l 15)"
 
 case "$choice" in
     workstation)
-        remotehost='192.168.1.7'
+        remotehost="192.168.1.7"
         genlogin "myuser";;
     dc1)
-        remotehost='domain-controller1.work.com'
+        remotehost="domain-controller1.work.com"
         genlogin "domain-admin";;
     dc2)
-        remotehost='domain-controller2.work.com'
+        remotehost="domain-controller2.work.com"
         genlogin "domain-admin";;
     fs1)
-        remotehost='fileserver1.work.com'
+        remotehost="fileserver1.work.com"
         genlogin "super-admin";;
     *)  remotehost="$choice.work.com"; genlogin "super-admin";; # Default to super-admin so I can connect to any server I haven't already declared in ${options}
 esac
