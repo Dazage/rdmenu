@@ -32,11 +32,8 @@ case "$choice" in
     workstation)
         remotehost="192.168.1.7"
         genlogin "myuser";;
-    dc1)
-        remotehost="domain-controller1.work.com"
-        genlogin "domain-admin";;
-    dc2)
-        remotehost="domain-controller2.work.com"
+    dc*)
+        remotehost="$choice.work.com"
         genlogin "domain-admin";;
     fs1)
         remotehost="fileserver1.work.com"
